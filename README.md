@@ -31,6 +31,7 @@ myCC:addNames( "block", "redBall", "greenBall" )
 
 ##### Set collision rules
 ```lua
+-- redBall will collide with block and greenBall
 myCC:collidesWith( "redBall", "block", "greenBall"  )
 ```
 
