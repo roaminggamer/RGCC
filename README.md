@@ -1,4 +1,4 @@
-RGCC - Roaming Gamer Collision Calculator
+RGCC
 ============
 
 RGCC makes it easy calculate and configure single-body collisions in Corona SDK.
@@ -38,7 +38,8 @@ myCC:collidesWith( "redBall", "block", "greenBall"  )
 ```lua
 	local tmp = display.newCircle( 100, 100, 10  )
 	tmp:setFillColor( 1, 0, 0 )
-	physics.addBody( tmp, "dynamic", { radius = 10, filter = myCC:getCollisionFilter( "redBall" ) } )
+	physics.addBody( tmp, "dynamic", { radius = 10, 
+	   filter = myCC:getCollisionFilter( "redBall" ) } )
 ```
 
 ##### Get Category Bits
