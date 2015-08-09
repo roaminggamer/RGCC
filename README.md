@@ -37,36 +37,36 @@ myCC:collidesWith( "redBall", "block", "greenBall"  )
 
 ##### Get Filter
 ```lua
-	local tmp = display.newCircle( 100, 100, 10  )
-	tmp:setFillColor( 1, 0, 0 )
-	physics.addBody( tmp, "dynamic", 
-	   { radius = 10, filter = myCC:getCollisionFilter( "redBall" ) } )
+local tmp = display.newCircle( 100, 100, 10  )
+tmp:setFillColor( 1, 0, 0 )
+physics.addBody( tmp, "dynamic", 
+   { radius = 10, filter = myCC:getCollisionFilter( "redBall" ) } )
 ```
 
 ##### Get Category Bits
 ```lua
-	local categoryBits =  myCC:getCategoryBits( "redBall" ) 
+local categoryBits =  myCC:getCategoryBits( "redBall" ) 
 ```
 
 ##### Get Mask Bits
 ```lua
-	local maskBits =  myCC:getMaskBits( "redBall" ) 
+local maskBits =  myCC:getMaskBits( "redBall" ) 
 ```
 
 ##### Dump Calculator Settings (Debug)
 ```lua
-	myCC:dump()
+myCC:dump()
 
-	-- Prints something like this:
-	*********************************************
+-- Prints something like this:
+*********************************************
 
-	Dumping collision settings...
-	name           | num | cat bits | col mask
-	-------------- | --- | -------- | --------
-	redBall        | 2   | 2        | 5
-	block          | 1   | 1        | 2
-	greenBall      | 3   | 4        | 2
+Dumping collision settings...
+name           | num | cat bits | col mask
+-------------- | --- | -------- | --------
+redBall        | 2   | 2        | 5
+block          | 1   | 1        | 2
+greenBall      | 3   | 4        | 2
 
-	*********************************************
+*********************************************
 ```
 
