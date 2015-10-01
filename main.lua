@@ -1,30 +1,5 @@
--- =============================================================
--- Copyright Roaming Gamer, LLC. 2009-2015
--- =============================================================
--- RG Collision Calculator Example (RGCC)
--- =============================================================
--- 								License
--- =============================================================
---[[
-	> RGCC is free to use.
-	> RGCC is free to edit.
-	> RGCC is free to use in a free or commercial game.
-	> RGCC is free to use in a free or commercial non-game app.
-	> RGCC is free to use without crediting the author (credits are still appreciated).
-	> RGCC is free to use without crediting the project (credits are still appreciated).
-	> RGCC is NOT free to sell for anything.
-	> RGCC is NOT free to credit yourself with.
-]]
--- =============================================================
-display.setStatusBar(display.HiddenStatusBar)  -- Hide that pesky bar
-io.output():setvbuf("no") -- Don't use buffer for console messages
--- =============================================================
 
--- =============================================================
--- Step 1. - Load RGCC 
--- =============================================================
-local ccmgr = require "RGCC"
-
+local ccmgr = require "cc"
 
 local group = display.newGroup() 
 
@@ -36,11 +11,11 @@ physics.setGravity(0,9.8)
 local createBlock
 local createBall
 
--- Easily set up collision filters with an RGCC Collision Calculator
-local myCC = ccmgr:newCalculator()
+-- Easily set up collision filters with a Roaming Gamer Collision Calculator
+local myCC = ccmgr.newCalculator()
 
 myCC:addNames( "block", "redBall", "greenBall" )
-myCC:collidesWith( "redBall", "block", "greenBall"  )
+myCC:collidesWith( "redBall", { "block", "greenBall" } )
 
 createBall = function( x, y, r, color, type)
 	local tmp = display.newCircle( group, x, y, r )
@@ -57,18 +32,19 @@ createBlock = function( x, y, size, angle)
 	tmp:setStrokeColor( 1, 1, 0 )
 	tmp.strokeWidth = 2
 	tmp.rotation = angle
-	physics.addBody( tmp, "static", { radius = r, friction = 0.2, bounce = 0.5, filter = myCC:getCollisionFilter( block ) } )
+	physics.addBody( tmp, "static", { radius = r, friction = 0.2, bounce = 0.5, filter = myCC:getCollisionFilter( "block" ) } )
 end
 
 createBlock( display.contentCenterX - 100, display.actualContentHeight - 20, 40, 10)
+
+createBlock( display.contentCenterX + 20, display.actualContentHeight - 20, 40, 0)
+createBlock( display.contentCenterX + 60, display.actualContentHeight - 20, 40, 0)
 createBlock( display.contentCenterX + 100, display.actualContentHeight - 20, 40, 0)
+createBlock( display.contentCenterX + 140, display.actualContentHeight - 20, 40, 0)
+createBlock( display.contentCenterX + 180, display.actualContentHeight - 20, 40, 0)
 
 createBall( display.contentCenterX - 100, 30, 10, {1,0,0}, "redBall" )
 createBall( display.contentCenterX + 100, 30, 10, {0,1,0}, "greenBall" )
 
 
 myCC:dump()
-
-
-
-

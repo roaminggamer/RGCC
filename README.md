@@ -8,7 +8,7 @@ Basic Usage
 
 ##### Require the code
 ```lua
-local ccmgr = require "RGCC"
+local ccmgr = require "cc"
 ```
 
 ##### Create your calculator
@@ -32,7 +32,7 @@ myCC:addNames( "block", "redBall", "greenBall" )
 ##### Set collision rules
 ```lua
 -- redBall will collide with block and greenBall
-myCC:collidesWith( "redBall", "block", "greenBall"  )
+myCC:collidesWith( "redBall", { "block", "greenBall" } )
 ```
 
 ##### Get Filter
