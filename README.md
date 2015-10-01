@@ -3,6 +3,10 @@ RGCC
 
 RGCC makes it easy calculate and configure single-body collisions in Corona SDK.
 
+This library is now a plugin:
+https://store.coronalabs.com/plugin/collision-calculator
+While I expect no changes, the plugin is guaranteed to be up to date, while this git may lag a little behind.
+
 Basic Usage
 -------------------------
 
